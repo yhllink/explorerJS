@@ -38,6 +38,8 @@ console.log(explorerJS.existsSync('./existsSync.js')) // { code: 200, data: { ty
   explorerJS.mkDir // 创建文件夹
   explorerJS.writeFileSync // 创建/修改文件(覆盖)（同步）
   explorerJS.writeFile // 创建/修改文件(覆盖)
+  explorerJS.appendFileSync // 创建/追加文件（同步）
+  explorerJS.appendFile // 创建/追加文件
   explorerJS.readFileSync // 读取文件（utf-8）（同步）
   explorerJS.readFile // 读取文件（utf-8）
   explorerJS.copySync // 拷贝(文件|文件夹)（同步）
