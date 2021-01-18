@@ -173,6 +173,23 @@ function writeFile (filePath, data) {
   })
 }
 
+// 创建/追加文件
+function appendFileSync (filePath, data) {
+  filePath = path.join(filePath)
+  mkDirSync(path.join(filePath, '../'))
+  return fs.appendFileSync(filePath, data)
+}
+function appendFile (filePath, data) {
+  return new Promise(async function (resolve) {
+    filePath = path.join(filePath)
+    await mkDir(path.join(filePath, '../'))
+    fs.appendFile(filePath, data, function (error) {
+      if (error) return resolve(err(error, 'File append failure'))
+      resolve(succ())
+    })
+  })
+}
+
 // 读取文件
 function readFileSync (filePath) {
   filePath = path.join(filePath)
