@@ -290,6 +290,8 @@ module.exports = {
   mkDir,
   writeFileSync,
   writeFile,
+  appendFileSync,
+  appendFile,
   readFileSync,
   readFile,
   copySync,
