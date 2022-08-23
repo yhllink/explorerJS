@@ -15,10 +15,8 @@ const explorerJS = require('yhl-explorer-js')
 
 console.log(explorerJS.existsSync('./existsSync.js')) // { code: 200, data: { type: 'file' }, message: '' }
 
-;(async function() {
-  const res = await explorerJS.exists('./existsSync.js')
-  console.log(res) // { code: 200, data: { type: 'file' }, message: '' }
-})()
+const res = await explorerJS.exists('./existsSync.js')
+console.log(res) // { code: 200, data: { type: 'file' }, message: '' }
 ```
 
 
@@ -44,6 +42,8 @@ console.log(explorerJS.existsSync('./existsSync.js')) // { code: 200, data: { ty
   explorerJS.readFile // 读取文件（utf-8）
   explorerJS.copySync // 拷贝(文件|文件夹)（同步）
   explorerJS.copy // 拷贝(文件|文件夹)
+  explorerJS.statFileSync // 获取文件信息（同步）
+  explorerJS.statFile // 获取文件信息
 ```
 
 
