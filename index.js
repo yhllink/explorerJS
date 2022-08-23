@@ -275,6 +275,27 @@ function copy (from, to, ignores = []) {
   })
 }
 
+// 获取文件信息
+function statFileSync (filePath) {
+  filePath = path.join(filePath)
+  const res = fileHasSync(filePath)
+  if (res.code !== 200) return res
+
+  return succ(fs.statSync(filePath))
+}
+function statFile (filePath) {
+  return new Promise(async function (resolve) {
+    filePath = path.join(filePath)
+    const res = await fileHas(filePath)
+    if (res.code !== 200) return resolve(res)
+
+    fs.stat(filePath, function (error, data) {
+      if (error) return resolve(err(error, 'File stat failure'))
+      resolve(succ(data))
+    })
+  })
+}
+
 module.exports = {
   existsSync,
   exists,
@@ -295,5 +316,7 @@ module.exports = {
   readFileSync,
   readFile,
   copySync,
-  copy
+  copy,
+  statFileSync,
+  statFile
 }
